@@ -21,8 +21,8 @@ class App extends Component {
     return (
     	<div className="App">
       <p>Inputted value: {this.state.searchVal}</p>
-        <form id="form" onSubmit={this.handleSubmit} onChange={this.handleChange} value={this.state.searchVal}>
-          <input type="text" ref={(node) => {this.input=node}}/>
+        <form id="form" onSubmit={this.handleSubmit} onChange={this.handleChange} >
+          <input value={this.state.searchVal} type="text" ref={(node) => {this.input=node}}/>
           <input type="submit" />
         </form>
         {this.state.loading && <div><h1>Request a User</h1></div>}
@@ -52,6 +52,7 @@ class App extends Component {
       	userAvatar:res.avatar_url,
         username:res.name,
         repos:res.public_repos,
+        searchVal:'',
         loading:false
       })
     })
